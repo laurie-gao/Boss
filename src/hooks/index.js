@@ -1,29 +1,53 @@
 import { useState, useEffect } from 'react';
 import moment from 'moment';
 import { firebase } from '../firebase';
-import { combinedTasks } from '../helpers';
+import { findTasks } from '../helpers';
+
+export const useProjects = () => {
+    const [projects, setProjects] = useState([]);
+
+    useEffect(() => {
+        firebase.firestore()
+        .collection('projects')
+        .where('userId', '==', '1a2s3d4f5g')
+        .orderBy('projectId')
+        .get()
+        .then(snapshot => {
+           const allProjects = snapshot.docs.map(project=> ({
+               ...project.data(),
+               Id: project.id
+           }));
+
+           if (JSON.stringify(allProjects) !== JSON.stringify(projects)) {
+               setProjects(allProjects);
+           }
+        });
+    }, [projects]);
+
+    return { projects }
+};
 
 export const useTasks = selectedProject => {
     const [tasks, setTasks] = useState([]);
     const [archivedTasks, setArchivedTasks] = useState([]);
 
     useEffect(() => {
-        let unsubscribe = firebase
+        let taskList = firebase
         .firestore()
         .collection('tasks')
         .where('userId', '==', '1a2s3d4f5g')
 
-        unsubscribe = selectedProject && !combinedTasks(selectedProject) ? 
-        (unsubscribe = unsubscribe.where('projectId', '==', selectedProject))
+        taskList = selectedProject && !findTasks(selectedProject) ? 
+        (taskList = taskList.where('projectId', '==', selectedProject))
         : selectedProject === 'TODAY'
-        ? (unsubscribe = unsubscribe.where('date', '==', moment().format('DD/MM/YYYY')))
+        ? (taskList = taskList.where('date', '==', moment().format('DD/MM/YYYY')))
         : selectedProject === 'INBOX' || selectedProject === 0
-        ? (unsubscribe = unsubscribe.where('date', '==', ''))
-        : unsubscribe;
+        ? (taskList = taskList.where('date', '==', ''))
+        : taskList;
 
-        unsubscribe = unsubscribe.onSnapshot(snapshot => {
+        taskList = taskList.onSnapshot(snapshot => {
             const newTasks = snapshot.docs.map(task => ({
-                id: task.id,
+                Id: task.id,
                 ...task.data(),
             }));
 
@@ -33,14 +57,15 @@ export const useTasks = selectedProject => {
                     task => moment(task.date, 'DD-MM-YYYY').diff(moment(), 'days') <= 7 &&
                     task.archived !== true
                 ) 
-                : newTasks.filter(task => task.archived === false)
+                : newTasks.filter(task => task.archived !== true)
             );
 
             setArchivedTasks(newTasks.filter(task => task.archived === true));
         });
 
-        return () => unsubscribe();
+        return () => taskList();
     }, [selectedProject]);
 
     return { tasks, archivedTasks };
 };
+
