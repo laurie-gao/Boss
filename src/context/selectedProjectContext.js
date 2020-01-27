@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 export const SelectedProjectContext =  React.createContext();
-export const SelectedProjectProvider = ({children}) => {
+export const SelectedProjectStore = ({children}) => {
     const { selectedProject, setSelectedProject } = useState('INBOX');
 
     return (
@@ -11,4 +11,4 @@ export const SelectedProjectProvider = ({children}) => {
     );
 };
 
-export const useSelectedProjectValue = () => React.useContext(SelectedProjectContext);
+export const useSelectedProjectContext = () => React.useContext(SelectedProjectContext);

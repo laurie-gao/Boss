@@ -1,5 +1,6 @@
 import React from 'react';
 import { IoIosStats } from 'react-icons/io';
+import { FiPlus } from 'react-icons/fi';
 
 export const Header = () => {
     return (
@@ -10,7 +11,7 @@ export const Header = () => {
                 </div>
                 <div className="settings">
                     <ul>
-                        <li data-testid="add-task" className="setting__add">+</li>
+                        <li data-testid="add-task" ><FiPlus /></li>
                         <li><IoIosStats /></li>
                     </ul>
                 </div>
