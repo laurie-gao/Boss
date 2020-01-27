@@ -10,7 +10,7 @@ export const Header = () => {
                 </div>
                 <div className="settings">
                     <ul>
-                        <li>+</li>
+                        <li data-testid="add-task" className="setting__add">+</li>
                         <li><IoIosStats /></li>
                     </ul>
                 </div>
