@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSelectedProjectContext, useProjectsContext } from '../context';
+import { Project } from './Project';
 
 export const Projects = ({ currentValue = null }) => {
     const [current, setCurrent] = useState(currentValue);
@@ -11,7 +12,7 @@ export const Projects = ({ currentValue = null }) => {
         projects.map(project => (
             <li 
                 key={project.projectId}
-                id={project.docId}
+                data-doc-id={project.docId}
                 data-testid="project-action"
                 className={
                     current === project.projectId ? 'active sidebar__project' : 'sidebar__project'
@@ -21,7 +22,7 @@ export const Projects = ({ currentValue = null }) => {
                     setSelectedProject(project.projectId);
                 }}
             >
-                I am a project
+                <Project project={project}/>
             </li>
         ))
     );

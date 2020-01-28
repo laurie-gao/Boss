@@ -1,12 +1,29 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Checkbox } from './Checkbox';
 import { useTasks } from '../hooks';
-
+import { combinedTasks } from '../constants';
+import { getTitle, getCombinedTitle, findTasks} from '../helpers';
+import { useSelectedProjectContext, useProjectsContext } from '../context';
 
 export const Tasks = () => {
-    const { tasks } = useTasks('1');
+    const { selectedProject } = useSelectedProjectContext();
+    const { projects } = useProjectsContext();
+    const { tasks } = useTasks(selectedProject);
 
     let projectName = '';
+
+    if (projects && selectedProject && !findTasks(selectedProject)){
+        projectName = getTitle(projects, selectedProject).name;
+        console.log(projectName);
+    }
+
+    else if (selectedProject && findTasks(selectedProject)) {
+        projectName = getCombinedTitle(combinedTasks, selectedProject).name;
+    }
+
+    useEffect(() => {
+        document.title = `${projectName}: Boss`;
+    }, [])
 
     return (
         <div className="tasks" data-testid="tasks">

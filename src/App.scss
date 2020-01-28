@@ -182,7 +182,7 @@ header {
         grid-area: 1 / 1;
 
         img {
-          width: 24px;
+          width: 25px;
         }
 
       }
@@ -213,7 +213,7 @@ header {
 
           &.settings__add {
             margin-right: 15px;
-            font-size: 30px;
+            font-size: 25px;
 
             button {
               @include transparent-button();
@@ -221,8 +221,10 @@ header {
               cursor: pointer;
             }
           }
+          
+          &.settings__stat {
+            font-size: 25px;  
 
-          &.settings__darkmode {
             button {
               @include transparent-button();
               color: white;
@@ -230,13 +232,7 @@ header {
               display: -webkit-box;
               display: -ms-flexbox;
               display: flex;
-
-              svg {
-                width: 20px;
-                height: 20px;
-              }
             }
-
           }
         }
       }
@@ -270,20 +266,8 @@ header {
   }
 
   &__project {
+    padding: 5px 0;
     cursor: pointer;
-
-    div:nth-child(1) {
-      padding: 5px 0;
-      padding-left: 10px;
-      padding-right: 15px;
-      width: 100%;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-align: center;
-          -ms-flex-align: center;
-              align-items: center;
-    }
 
     &-delete {
       margin-left: auto;
@@ -342,8 +326,6 @@ header {
   &__middle {
     margin-top: 20px;
     margin-bottom: 20px;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     border-bottom: $generic-border;
     padding-left: 10px;
@@ -354,8 +336,7 @@ header {
       margin-right: 10px;
 
       svg.hidden-projects {
-        -webkit-transform: rotate(-90deg);
-                transform: rotate(-90deg);
+        transform: rotate(-90deg);
       }
     }
 
@@ -368,49 +349,32 @@ header {
     }
   }
 
-  &__generic {
-    li {
-      list-style-type: none;
-      color: #333;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      cursor: pointer;
-      line-height: 1.50;
-      font-size: 15px;
-      padding-left: 0;
-      padding-right: 0;
+&__generic {
+  li {
+    padding: 10px 0 10px 10px;
+    list-style-type: none;
+    color: #333;
+    display: flex;
+    cursor: pointer;
+    line-height: 1.50;
+    font-size: 15px;
 
-      div:nth-child(1) {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        padding: 10px 0 10px 10px;
-        width: 100%;
+    span:first-of-type {
+      margin-right: 10px;
 
-        span:first-of-type {
-          margin-right: 10px;
-          display: -webkit-box;
-          display: -ms-flexbox;
-          display: flex;
-          -webkit-box-align: center;
-              -ms-flex-align: center;
-                  align-items: center;
-
-          svg {
-            width: 18px;
-            height: 18px;
-            color: #555;
-          }
+        svg {
+          width: 18px;
+          height: 18px;
+          color: #555;
         }
       }
 
-      &.active, &:hover {
-        font-weight: bold;
-        background-color: white;
-      }
+    &.active, &:hover {
+      font-weight: bold;
+      background-color: white;
     }
   }
+}
 }
 
 /* Show Confirm Delete

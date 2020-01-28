@@ -23,7 +23,7 @@ export default selectedProject => {
 
         taskList = taskList.onSnapshot(snapshot => {
             const newTasks = snapshot.docs.map(task => ({
-                Id: task.id,
+                id: task.id,
                 ...task.data(),
             }));
 

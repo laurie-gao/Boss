@@ -13,7 +13,7 @@ export default () => {
         .then(snapshot => {
            const allProjects = snapshot.docs.map(project=> ({
                ...project.data(),
-               Id: project.id
+               docId: project.id
            }));
 
            if (JSON.stringify(allProjects) !== JSON.stringify(projects)) {
