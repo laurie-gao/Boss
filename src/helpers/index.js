@@ -1,16 +1,14 @@
 import { combinedTasks } from '../constants';
 
-export const getTitle = (projects, projectId) => {
-    projects.find(project => project.projectId === projectId);
-}
-
-export const getCombinedTitle = (tasks, key) => {
-    tasks.find(task => task.projectId === key);
-}
-
-export const findTasks = selectedProject => {
+export const findTasks = selectedProject => 
     combinedTasks.find(task => task.key === selectedProject);
-};
+
+
+export const getTitle = (projects, projectId) => 
+    projects.find(project => project.projectId === projectId);
+
+export const getCombinedTitle = (tasks, key) => 
+    tasks.find(task => task.key === key);
 
 export const generatePushId = (() => {
     const PUSH_CHARS =

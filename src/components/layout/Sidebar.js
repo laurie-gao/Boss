@@ -47,7 +47,7 @@ export const Sidebar = () => {
                 <span>
                     <FaChevronDown className={!showProjects? 'hidden-projects' : undefined}/>
                 </span>
-                <h2>Projects</h2>
+                <h2>Lists</h2>
             </div>
             <ul className="siderbar__projects">{showProjects && <Projects />}</ul>
             {showProjects && <AddProject />}

@@ -2,7 +2,7 @@ import React from 'react';
 import { useProjects } from '../hooks';
 
 export const ProjectsContext =  React.createContext();
-export const ProjectsStore = ({children}) => {
+export const ProjectsStore = ({ children }) => {
     const { projects, setProjects } = useProjects();
 
     return (
