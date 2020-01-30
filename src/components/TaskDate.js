@@ -1,7 +1,7 @@
   
 import React from 'react';
 import moment from 'moment';
-import { FaSpaceShuttle, FaSun, FaRegPaperPlane } from 'react-icons/fa';
+import { FaRegCalendarCheck, FaRegHandPointRight, FaRegPaperPlane } from 'react-icons/fa';
 
 export const TaskDate = ({ setTaskDate, showTaskDate, setShowTaskDate }) =>
   showTaskDate && (
@@ -16,7 +16,7 @@ export const TaskDate = ({ setTaskDate, showTaskDate, setShowTaskDate }) =>
             data-testid="task-date-today"
           >
             <span>
-              <FaSpaceShuttle />
+              <FaRegCalendarCheck />
             </span>
             <span>Today</span>
           </div>
@@ -34,7 +34,7 @@ export const TaskDate = ({ setTaskDate, showTaskDate, setShowTaskDate }) =>
             data-testid="task-date-tomorrow"
           >
             <span>
-              <FaSun />
+              <FaRegHandPointRight />
             </span>
             <span>Tomorrow</span>
           </div>

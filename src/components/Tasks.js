@@ -18,7 +18,7 @@ export const Tasks = () => {
         projectName = getCombinedTitle(combinedTasks, selectedProject).name;
     }
 
-    if (projects && selectedProject && !findTasks(selectedProject)){
+    if (projects.length > 0 && projects && selectedProject && !findTasks(selectedProject)){
         projectName = getTitle(projects, selectedProject).name;
     }
 

@@ -213,7 +213,7 @@ header {
 
           &.settings__add {
             margin-right: 15px;
-            font-size: 25px;
+            font-size: 23px;
 
             button {
               @include transparent-button();
@@ -223,7 +223,7 @@ header {
           }
           
           &.settings__stat {
-            font-size: 25px;  
+            font-size: 23px;  
 
             button {
               @include transparent-button();
@@ -534,8 +534,8 @@ header {
       color: gray;
       float: right;
       font-weight: bold;
-      font-size: 12px;
-      margin-top: 10px;
+      font-size: 25px;
+      margin-top: 3px;
     }
   }
 
@@ -585,12 +585,12 @@ header {
 
 .add-task__plus, .add-project__plus {
   color: #dd4b39;
-  font-size: 18px;
+  font-size: 17px;
 }
 
 .add-task__text, .add-project__text {
   display: inline-block;
-  color: #545454;
+  color: #747474;
   font-size: 14px;
   margin-left: 15px;
 }

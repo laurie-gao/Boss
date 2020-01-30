@@ -17,12 +17,15 @@ export const Projects = ({ currentValue = null }) => {
                 className={
                     current === project.projectId ? 'active sidebar__project' : 'sidebar__project'
                 }
+            >
+                <div
                 onClick={() => {
                     setCurrent(project.projectId);
                     setSelectedProject(project.projectId);
                 }}
             >
                 <Project project={project}/>
+                </div>
             </li>
         ))
     );

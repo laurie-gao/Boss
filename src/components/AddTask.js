@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FaRegCalendarAlt, FaRegCalendarCheck } from 'react-icons/fa';
-import { IoIosList } from 'react-icons/io';
+import { IoIosList, IoIosClose } from 'react-icons/io';
+import { AiOutlinePlus } from 'react-icons/ai';
 import moment from 'moment';
 import { firebase } from '../firebase';
 import { useSelectedProjectContext } from '../context';
@@ -82,7 +83,7 @@ export const AddTask = ({
                                         setShowQuickAddTask(false);
                                     }}
                                     >
-                                        x
+                                        <IoIosClose />
                                 </span>
                             </div>
                         </>
@@ -108,7 +109,11 @@ export const AddTask = ({
                         type="button"
                         className="add-task__submit"
                         data-testid="add-task"
-                        onClick={() => addTask()}
+                        onClick={() =>
+                            showQuickAddTask
+                                ?  addTask() && setShowQuickAddTask(false)
+                                : addTask()
+                        }
                         >Add Task</button>
                     {!showQuickAddTask && (
                         <span

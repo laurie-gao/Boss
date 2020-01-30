@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { IoIosStats } from 'react-icons/io';
 import { AiOutlinePlus } from 'react-icons/ai';
+import { AddTask } from '../AddTask';
 
 export const Header = () => {
+    const [showMain, setShowMain] = useState(false);
+    const [showQuickAddTask, setShowQuickAddTask] = useState(false);
+
     return (
         <header className="header" data-testid="header">
             <nav>
@@ -11,8 +15,15 @@ export const Header = () => {
                 </div>
                 <div className="settings">
                     <ul>
-                        <li data-testid="add-task" className="settings__add">
-                            <AiOutlinePlus />
+                        <li 
+                            data-testid="add-task" 
+                            className="settings__add"
+                            onClick={() => {
+                                setShowQuickAddTask(true);
+                                setShowMain(true);
+                            }}
+                        >
+                            <AiOutlinePlus /> 
                         </li>
                         <li className = "settings__stat">
                             <IoIosStats />
@@ -20,6 +31,13 @@ export const Header = () => {
                     </ul>
                 </div>
             </nav>
+
+            <AddTask 
+                showAddTaskMain={false}
+                showMainValue={showMain}
+                showQuickAddTask={showQuickAddTask}
+                setShowQuickAddTask={setShowQuickAddTask}
+            />
         </header>
     );
 };
