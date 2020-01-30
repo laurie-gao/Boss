@@ -39,7 +39,9 @@ export const Project = ({ project }) => {
                             >
                                 Delete
                             </button>
-                            <span onClick={() => setShowModal(!showModal)}>Cancel</span>
+                            <span onClick={() => setShowModal(!showModal)}>
+                                Cancel
+                            </span>
                         </div>
                     </div>
                 )}

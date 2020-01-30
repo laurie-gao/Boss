@@ -4,7 +4,6 @@ import { Content } from './components/layout/Content';
 import { ProjectsStore, SelectedProjectStore } from './context';
 import { InboxStore } from './context';
 
-
 const App = () => {
   return (
     <SelectedProjectStore>

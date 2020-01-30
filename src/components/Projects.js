@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { useSelectedProjectContext, useProjectsContext } from '../context';
+import { useSelectedProjectContext, useProjectsContext, useInboxContext } from '../context';
 import { Project } from './Project';
 
-export const Projects = ({ currentValue = null }) => {
+export const Projects = ({ currentValue = null, activeProject, setActiveProject }) => {
     const [current, setCurrent] = useState(currentValue);
     const { setSelectedProject } = useSelectedProjectContext();
     const { projects } = useProjectsContext();
+    const { showInbox, setShowInbox } = useInboxContext();
 
     return (
         projects &&
@@ -15,16 +16,19 @@ export const Projects = ({ currentValue = null }) => {
                 data-doc-id={project.docId}
                 data-testid="project-action"
                 className={
-                    current === project.projectId ? 'active sidebar__project' : 'sidebar__project'
+                    (current === project.projectId  && !showInbox && !activeProject)? 'active sidebar__project' : 'sidebar__project'
                 }
             >
                 <div
-                onClick={() => {
-                    setCurrent(project.projectId);
-                    setSelectedProject(project.projectId);
-                }}
-            >
-                <Project project={project}/>
+                    role="button"
+                    onClick={() => {
+                        setCurrent(project.projectId);
+                        setSelectedProject(project.projectId);
+                        setShowInbox(false);
+                        setActiveProject(false);
+                    }}
+                >
+                    <Project project={project}/>
                 </div>
             </li>
         ))

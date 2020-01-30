@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,700,900');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
 // General Settings
 html {
@@ -216,11 +216,11 @@ header {
             margin-right: 15px;
             font-size: 23px;
 
-            /*button {
+            button {
               @include transparent-button();
               color: white;
               cursor: pointer;
-            }*/
+            }
           }
 
           &.settings__stat {
@@ -282,7 +282,11 @@ header {
       }
     }
 
-    &.active, &:hover {
+    &:hover {
+      background-color: white;
+    }
+
+    &.active {
       font-weight: bold;
       background-color: white;
     }
@@ -359,7 +363,6 @@ header {
   &__generic {
     li {
       list-style-type: none;
-      padding: 10px 0 10px 10px;
       color: #333;
       display: -webkit-box;
       display: -ms-flexbox;
@@ -367,24 +370,24 @@ header {
       cursor: pointer;
       line-height: 1.50;
       font-size: 15px;
-      //padding-left: 0;
-      //padding-right: 0;
+      padding-left: 0;
+      padding-right: 0;
 
-      /**div:nth-child(1) {
+      div:nth-child(1) {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
         padding: 10px 0 10px 10px;
-        width: 100%;**/
+        width: 100%;
 
         span:first-of-type {
           margin-right: 10px;
-          /**display: -webkit-box;
+          display: -webkit-box;
           display: -ms-flexbox;
           display: flex;
           -webkit-box-align: center;
               -ms-flex-align: center;
-                  align-items: center;**/
+                  align-items: center;
 
           svg {
             width: 18px;
@@ -392,9 +395,13 @@ header {
             color: #555;
           }
         }
-      
+      }
 
-      &.active, &:hover {
+      &:hover {
+        background-color: white;
+      }
+
+      &.active {
         font-weight: bold;
         background-color: white;
       }
@@ -559,8 +566,8 @@ header {
       color: gray;
       float: right;
       font-weight: bold;
-      font-size: 12px;
-      margin-top: 10px;
+      font-size: 20px;
+      margin-top: 4px;
     }
   }
 
