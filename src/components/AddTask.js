@@ -30,7 +30,7 @@ export const AddTask = ({
         if (projectId === 'TODAY') {
             date = moment().format('DD/MM/YYYY')
         } else if (projectId === 'NEXT_7') {
-            date = moment.add(7, 'days').format('DD/MM/YYYY');
+            date = moment().add(7, 'days').format('DD/MM/YYYY');
         } 
         
         return (task && projectId && 

@@ -129,17 +129,6 @@ $generic-bg: #db4c3f;
   }
 }
 
-/* Darkmode
-  ============================================ */
-.darkmode {
-  header {
-    -webkit-box-shadow: 0 1px 3px 0 rgba(0,0,0,0.15);
-    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.15);
-    background-color: #282828;
-    border-color: transparent;
-  }
-}
-
 /* Header
   ============================================ */
 header {
@@ -180,9 +169,21 @@ header {
       &.logo {
         padding-left: 8px;
         grid-area: 1 / 1;
-
+        ul li {
+          list-style-type: none;
+          cursor: pointer;
+          width: 30px;
+          height: 30px;
+          text-align: center;
+          vertical-align: middle;
+          &:hover {
+            border-radius: 3px;
+            background-color: rgba(255,255,255,0.2);
+          }
+        }
+  
         img {
-          width: 25px;
+          width: 24px;
         }
 
       }
@@ -215,24 +216,15 @@ header {
             margin-right: 15px;
             font-size: 23px;
 
-            button {
+            /*button {
               @include transparent-button();
               color: white;
               cursor: pointer;
-            }
+            }*/
           }
-          
-          &.settings__stat {
-            font-size: 23px;  
 
-            button {
-              @include transparent-button();
-              color: white;
-              cursor: pointer;
-              display: -webkit-box;
-              display: -ms-flexbox;
-              display: flex;
-            }
+          &.settings__stat {
+            font-size: 23px;
           }
         }
       }
@@ -266,8 +258,20 @@ header {
   }
 
   &__project {
-    padding: 5px 0;
     cursor: pointer;
+
+    div:nth-child(1) {
+      padding: 5px 0;
+      padding-left: 10px;
+      padding-right: 15px;
+      width: 100%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+    }
 
     &-delete {
       margin-left: auto;
@@ -326,6 +330,8 @@ header {
   &__middle {
     margin-top: 20px;
     margin-bottom: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     border-bottom: $generic-border;
     padding-left: 10px;
@@ -336,7 +342,8 @@ header {
       margin-right: 10px;
 
       svg.hidden-projects {
-        transform: rotate(-90deg);
+        -webkit-transform: rotate(-90deg);
+                transform: rotate(-90deg);
       }
     }
 
@@ -349,32 +356,50 @@ header {
     }
   }
 
-&__generic {
-  li {
-    padding: 10px 0 10px 10px;
-    list-style-type: none;
-    color: #333;
-    display: flex;
-    cursor: pointer;
-    line-height: 1.50;
-    font-size: 15px;
+  &__generic {
+    li {
+      list-style-type: none;
+      padding: 10px 0 10px 10px;
+      color: #333;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      cursor: pointer;
+      line-height: 1.50;
+      font-size: 15px;
+      //padding-left: 0;
+      //padding-right: 0;
 
-    span:first-of-type {
-      margin-right: 10px;
+      /**div:nth-child(1) {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        padding: 10px 0 10px 10px;
+        width: 100%;**/
 
-        svg {
-          width: 18px;
-          height: 18px;
-          color: #555;
+        span:first-of-type {
+          margin-right: 10px;
+          /**display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-align: center;
+              -ms-flex-align: center;
+                  align-items: center;**/
+
+          svg {
+            width: 18px;
+            height: 18px;
+            color: #555;
+          }
         }
-      }
+      
 
-    &.active, &:hover {
-      font-weight: bold;
-      background-color: white;
+      &.active, &:hover {
+        font-weight: bold;
+        background-color: white;
+      }
     }
   }
-}
 }
 
 /* Show Confirm Delete
@@ -534,8 +559,8 @@ header {
       color: gray;
       float: right;
       font-weight: bold;
-      font-size: 25px;
-      margin-top: 3px;
+      font-size: 12px;
+      margin-top: 10px;
     }
   }
 
@@ -585,12 +610,12 @@ header {
 
 .add-task__plus, .add-project__plus {
   color: #dd4b39;
-  font-size: 17px;
+  font-size: 18px;
 }
 
 .add-task__text, .add-project__text {
   display: inline-block;
-  color: #747474;
+  color: #545454;
   font-size: 14px;
   margin-left: 15px;
 }
@@ -679,5 +704,4 @@ header {
     @include cancel();
   }
 }
-  
   

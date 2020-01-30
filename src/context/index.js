@@ -1,21 +1,23 @@
 import { 
-    ProjectsContext, 
     ProjectsStore, 
-    useProjectsContext,
+    useProjectsContext
 } from './projectsContext';
 
 import { 
-    SelectedProjectContext, 
     SelectedProjectStore, 
-    useSelectedProjectContext,
+    useSelectedProjectContext
 } from './selectedProjectContext';
 
+import {
+    InboxStore,
+    useInboxContext
+} from './inboxContext';
 
 export { 
-    ProjectsContext, 
     ProjectsStore, 
     useProjectsContext,
-    SelectedProjectContext,
     SelectedProjectStore,
-    useSelectedProjectContext
+    useSelectedProjectContext,
+    InboxStore,
+    useInboxContext
 }
