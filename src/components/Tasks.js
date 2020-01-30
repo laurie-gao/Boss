@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { Checkbox } from './Checkbox';
+import { AddTask } from './AddTask';
 import { useTasks } from '../hooks';
 import { combinedTasks } from '../constants';
 import { getTitle, getCombinedTitle, findTasks } from '../helpers';
@@ -13,17 +14,12 @@ export const Tasks = () => {
 
     let projectName = '';
 
-    console.log(selectedProject);
-    console.log(findTasks(selectedProject));
-
     if (findTasks(selectedProject) && selectedProject) {
         projectName = getCombinedTitle(combinedTasks, selectedProject).name;
-        console.log('projectName 1:', projectName);
     }
 
     if (projects && selectedProject && !findTasks(selectedProject)){
         projectName = getTitle(projects, selectedProject).name;
-        console.log('projectName 2:', projectName);
     }
 
     useEffect(() => {
@@ -42,6 +38,7 @@ export const Tasks = () => {
                     </li>
                 ))}
             </ul>
+            <AddTask />
         </div>
     );
 };
