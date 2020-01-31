@@ -412,9 +412,11 @@ header {
 /* Show Confirm Delete
   ============================================ */
 .project-delete-modal {
-  position: relative;
+  position: fixed;
+  margin-left: 250px;
 
   &__inner {
+    list-style-type: none;
     @include box-overlay();
     z-index: 99;
     width: 200px;
@@ -516,6 +518,11 @@ header {
         display: block;
         border: 1px solid gray;
         border-radius: 16px;
+
+        &:hover {
+          border-color: gray;
+          background-color: rgb(218, 216, 216);
+        }
       }
     }
   }

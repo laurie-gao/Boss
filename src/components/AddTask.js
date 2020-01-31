@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { FaRegCalendarAlt, FaRegCalendarCheck } from 'react-icons/fa';
+import { FaRegCalendarAlt } from 'react-icons/fa';
 import { IoIosList, IoIosClose } from 'react-icons/io';
-import { AiOutlinePlus } from 'react-icons/ai';
 import moment from 'moment';
 import { firebase } from '../firebase';
 import { useSelectedProjectContext } from '../context';
@@ -81,6 +80,7 @@ export const AddTask = ({
                                         setShowMain(false);
                                         setShowProjectOverlay(false);
                                         setShowQuickAddTask(false);
+                                        setProject('');
                                     }}
                                     >
                                         <IoIosClose />
@@ -122,6 +122,8 @@ export const AddTask = ({
                             onClick={() => {
                                 setShowMain(false);
                                 setShowProjectOverlay(false)
+                                setProject('')
+
                             }}>Cancel</span>
                     )}
                     <span

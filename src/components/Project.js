@@ -30,22 +30,22 @@ export const Project = ({ project }) => {
                 role="button"
             >
                 <FaTrashAlt />
-                {showModal && (
-                    <div className="project-delete-modal">
-                        <div className="project-delete-modal__inner">
-                            <p>Are you sure you want to delete this project?</p>
-                            <button type="button" 
-                                onClick={() => deleteProject(project.docId)}
-                            >
-                                Delete
-                            </button>
-                            <span onClick={() => setShowModal(!showModal)}>
-                                Cancel
-                            </span>
-                        </div>
-                    </div>
-                )}
             </span>
+            {showModal && (
+                <div className="project-delete-modal">
+                    <li className="project-delete-modal__inner">
+                        <p>Are you sure you want to delete this project?</p>
+                        <button type="button" 
+                            onClick={() => deleteProject(project.docId)}
+                        >
+                            Delete
+                        </button>
+                        <span onClick={() => setShowModal(!showModal)}>
+                            Cancel
+                        </span>
+                    </li>
+                </div>
+            )}
         </>
     );
 };

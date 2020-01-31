@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { firebase } from '../firebase';
 
 export const Checkbox = ({ id }) => {
+    const [checked, setChecked] = useState(false);
+
     const archiveTask = () => {
         firebase
             .firestore()

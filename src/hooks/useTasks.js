@@ -22,8 +22,6 @@ export const useTasks = selectedProject => {
               '==',
               moment().format('DD/MM/YYYY')
             ))
-          : selectedProject === 'INBOX' || selectedProject === 0
-          ? (taskList = taskList.where('date', '==', ''))
           : taskList;
   
       taskList = taskList.onSnapshot(snapshot => {
@@ -35,11 +33,17 @@ export const useTasks = selectedProject => {
         setTasks(
           selectedProject === 'NEXT_7'
             ? newTasks.filter(
-                task =>
-                  moment(task.date, 'DD-MM-YYYY').diff(moment(), 'days') <= 7 &&
-                  task.archived !== true
+              task =>
+                moment(task.date, 'DD-MM-YYYY').diff(moment(), 'days') <= 7 && 
+                moment(task.date, 'DD-MM-YYYY').diff(moment(), 'days') >= 0 &&
+                task.archived !== true
               )
-            : newTasks.filter(task => task.archived !== true)
+            : newTasks.filter(
+              task => 
+              (moment(task.date, 'DD-MM-YYYY').diff(moment(), 'days') >= 0 || 
+              task.date === '') &&
+              task.archived !== true
+            )
         );
         setArchivedTasks(newTasks.filter(task => task.archived !== false));
       });
