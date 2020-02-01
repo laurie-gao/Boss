@@ -24,7 +24,7 @@ export const Sidebar = () => {
                             setActiveProject(true);
                         }}
                     >
-                        <span><FaInbox /></span>
+                        <span className="inbox"><FaInbox /></span>
                         <span>Inbox</span>
                     </div>
                 </li>
@@ -39,7 +39,7 @@ export const Sidebar = () => {
                             setActiveProject(true);
                         }}
                     >
-                        <span><FaRegCalendarCheck /></span>
+                        <span clasName="today"><FaRegCalendarCheck /></span>
                         <span>Today</span>
                     </div>
                 </li>
@@ -54,7 +54,7 @@ export const Sidebar = () => {
                             setActiveProject(true);
                         }}
                     >
-                        <span><FaRegCalendarAlt /></span>
+                        <span className="next7"><FaRegCalendarAlt /></span>
                         <span>Next 7 days</span>
                     </div>
                 </li>

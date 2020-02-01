@@ -16,7 +16,7 @@ body {
   line-height: 1;
   font-family: 'Roboto', sans-serif;
   color: #202020;
-  background-color: #fafafa;
+  background-color: #f8f8f8;
   font-smooth: always;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -30,7 +30,7 @@ ul {
 // Variables
 $generic-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 4px 11px;
 $generic-border: 1px solid #f1f1f1;
-$generic-bg: #db4c3f;
+$generic-bg: #354dac;
 
 /* Mixins
   ============================================ */
@@ -132,7 +132,7 @@ $generic-bg: #db4c3f;
 /* Header
   ============================================ */
 header {
-  border-bottom: solid 1px #ca2100;
+  border-bottom: solid 1px #02565e;
   background-color: $generic-bg;
   -webkit-transition: height 200ms ease-in;
   transition: height 200ms ease-in;
@@ -243,7 +243,7 @@ header {
   overflow-x: hidden;
   overflow-y: hidden;
   border-right: $generic-border;
-  background-color: #fafafa;
+  background-color: #f8f8f8;
 
   @include mq('900px') {
     display: none;
@@ -388,11 +388,10 @@ header {
           -webkit-box-align: center;
               -ms-flex-align: center;
                   align-items: center;
-
           svg {
             width: 18px;
             height: 18px;
-            color: #555;
+            color: #65ccb8;
           }
         }
       }
@@ -484,6 +483,16 @@ header {
     margin-top: 20px;
   }
 
+  &__date {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  h4 {
+    margin: 30px 0 0 0;
+    font-size: 14px;
+  }
+
   &__list li {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -558,8 +567,8 @@ header {
       left: 50%;
       top: 50%;
       padding: 20px 30px;
-      -webkit-transform: translate(-50%, -50%);
-              transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -90%);
+              transform: translate(-50%, -90%);
 
       .header {
         font-size: 13px;
@@ -629,7 +638,7 @@ header {
 
 .add-task__text, .add-project__text {
   display: inline-block;
-  color: #545454;
+  color: gray;
   font-size: 14px;
   margin-left: 15px;
 }

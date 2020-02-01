@@ -1,4 +1,5 @@
 import { combinedTasks } from '../constants';
+import { dayOfWeek } from '../constants';
 
 export const findTasks = selectedProject => 
     combinedTasks.find(task => task.key === selectedProject);
@@ -34,3 +35,6 @@ export const generatePushId = (() => {
       return id;
     };
   })();
+
+  export const getDayOfWeek = (key) =>
+    dayOfWeek.find(day => day.key === key);

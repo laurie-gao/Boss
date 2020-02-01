@@ -45,7 +45,7 @@ export const TaskDate = ({ setTaskDate, showTaskDate, setShowTaskDate }) =>
               setShowTaskDate(false);
               setTaskDate(
                 moment()
-                  .add(7, 'days')
+                  .add(1, 'days')
                   .format('DD/MM/YYYY')
               );
             }}

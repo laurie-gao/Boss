@@ -23,7 +23,7 @@ export const AddTask = ({
     const { selectedProject } = useSelectedProjectContext();
 
     const addTask = () => {
-        const projectId = project || selectedProject;
+        const projectId = (project !== '') ? project : selectedProject;
         let date = '';
 
         if (projectId === 'TODAY') {
@@ -40,12 +40,13 @@ export const AddTask = ({
                     archived: false,
                     projectId,
                     task,
-                    date: date || taskDate,
+                    date: (taskDate !== '')? taskDate : date,
                     userId: '1a2s3d4f5g'
                 }).then(() => {
                     setTask('');
                     setProject('');
-                    setShowMain('')
+                    setTaskDate('');
+                    setShowMain('');
                     setShowProjectOverlay(false);
                 })
         );
@@ -81,6 +82,7 @@ export const AddTask = ({
                                         setShowProjectOverlay(false);
                                         setShowQuickAddTask(false);
                                         setProject('');
+                                        setTaskDate('');
                                     }}
                                     >
                                         <IoIosClose />
@@ -123,6 +125,7 @@ export const AddTask = ({
                                 setShowMain(false);
                                 setShowProjectOverlay(false)
                                 setProject('')
+                                setTaskDate('')
 
                             }}>Cancel</span>
                     )}
