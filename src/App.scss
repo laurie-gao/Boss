@@ -40,7 +40,7 @@ $generic-bg: #354dac;
   position: absolute;
   width: 100%;
   z-index: 1;
-  top: 85px;
+  //top: 85px;
   border-radius: 3px;
 }
 
@@ -648,8 +648,47 @@ header {
 .task-date {
   @include box-overlay();
   background-color: #fff;
-  width: 200px;
+  width: 250px;
   right: 0;
+
+  .react-calendar {
+    padding: 3px 3px 3px 3px;
+    border: none;
+
+    &__navigation {
+      margin-bottom: 0;
+      height: 35px;
+
+      button[disabled] {
+          background-color: transparent;
+      }
+
+      &__label {
+        font-weight: bold;
+        color: black;  
+        font-size: 13px;
+      }
+
+      &__prev2-button{
+        display: none;
+      }
+      
+      &__next2-button {
+        display: none;
+      }
+    }
+
+    &__tile {
+      padding: 0.55em 0.4em;
+      font-size: 12px;
+    }
+
+    &__month-view__weekdays__weekday abbr {
+      font-weight: normal;
+      text-decoration: none;
+      text-transform: capitalize;
+    }
+  }
 
   &__list li {
     @include task-item();
@@ -681,8 +720,10 @@ header {
 .project-overlay {
   @include box-overlay();
   background-color: white;
+  width: 60%;
+  transform: translate(70%, 0%);
 
-  @include mq('900px') {
+  @include mq('900px') { 
     width: 200px;
     right: 0;
   }

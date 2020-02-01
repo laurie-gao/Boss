@@ -1,26 +1,15 @@
   
-import React from 'react';
+import React, {useState} from 'react';
 import moment from 'moment';
 import { FaRegCalendarCheck, FaRegHandPointRight, FaRegPaperPlane } from 'react-icons/fa';
 import { getDayOfWeek } from '../helpers';
+import Calendar from 'react-calendar';
 
 export const TaskDate = ({ setTaskDate, showTaskDate, setShowTaskDate }) => {
   const todayKey = getDayOfWeek(moment().weekday()).key;
+  const [date, setDate] = useState(new Date());
 
-  const setDate = (day) => { return (
-      <div
-        onClick={() => {
-          setShowTaskDate(false);
-          setTaskDate(moment().add(day, 'days').format('DD/MM/YYYY'));
-        }}
-        data-test-id="task-date-next-week"
-      >
-        <span>
-          <FaRegPaperPlane />
-        </span>
-        <span>{getDayOfWeek((todayKey+day)%7).name}</span>
-      </div>
-  )};
+  console.log(date.toDateString());
 
   return (showTaskDate && (
     <div className="task-date" data-testid="task-date-overlay">
@@ -53,11 +42,15 @@ export const TaskDate = ({ setTaskDate, showTaskDate, setShowTaskDate }) => {
             <span>Tomorrow</span>
           </div>
         </li>
-        <li>{setDate((todayKey+2)%7)}</li>
-        <li>{setDate((todayKey+3)%7)}</li>
-        <li>{setDate((todayKey+4)%7)}</li>
-        <li>{setDate((todayKey+5)%7)}</li>
-        <li>{setDate((todayKey+6)%7)}</li>
       </ul>
+        <Calendar
+              minDetail="month"
+              minDate={new Date()}
+              onChange={ date => {
+                setTaskDate(moment(date.toDateString, 'ddd MMM DD YYYY').format('DD/MM/YYYY'));
+                setShowTaskDate(false);
+              }}
+              value={date}
+        />
     </div>
   ))};

@@ -80,6 +80,7 @@ export const AddTask = ({
                                     onClick={() => {
                                         setShowMain(false);
                                         setShowProjectOverlay(false);
+                                        setShowTaskDate(false);
                                         setShowQuickAddTask(false);
                                         setProject('');
                                         setTaskDate('');
@@ -90,16 +91,6 @@ export const AddTask = ({
                             </div>
                         </>
                     )}
-                    <ProjectOverlay 
-                        setProject={setProject} 
-                        showProjectOverlay={showProjectOverlay}
-                        setShowProjectOverlay={setShowProjectOverlay}
-                    />
-                    <TaskDate 
-                        setTaskDate={setTaskDate}
-                        showTaskDate={showTaskDate}
-                        setShowTaskDate={setShowTaskDate}
-                    />
                     <input 
                         className="add-task__content"
                         data-testid="add-task-content"
@@ -123,7 +114,8 @@ export const AddTask = ({
                             data-testid="add-task-main-cancel"
                             onClick={() => {
                                 setShowMain(false);
-                                setShowProjectOverlay(false)
+                                setShowProjectOverlay(false);
+                                setShowTaskDate(false);
                                 setProject('')
                                 setTaskDate('')
 
@@ -143,6 +135,16 @@ export const AddTask = ({
                     >
                         <FaRegCalendarAlt />
                     </span>
+                    <ProjectOverlay 
+                setProject={setProject} 
+                showProjectOverlay={showProjectOverlay}
+                setShowProjectOverlay={setShowProjectOverlay}
+                />
+                <TaskDate 
+                    setTaskDate={setTaskDate}
+                    showTaskDate={showTaskDate}
+                    setShowTaskDate={setShowTaskDate}
+                />
                 </div>
             )}
         </div>
