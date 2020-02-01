@@ -391,7 +391,7 @@ header {
           svg {
             width: 18px;
             height: 18px;
-            color: #65ccb8;
+            color: rgb(70, 70, 99);
           }
         }
       }
@@ -669,7 +669,7 @@ header {
         margin-right: 10px;
 
         svg {
-          fill: grey;
+          fill: rgb(70, 70, 99);
         }
       }
     }
@@ -694,6 +694,12 @@ header {
     div:nth-child(1) {
       width: 100%;
       padding: 10px;
+    }
+
+    span:first-of-type{
+      margin-right: 6px;
+      font-size: 10px;
+      color: rgb(70, 70, 99);
     }
   }
 }

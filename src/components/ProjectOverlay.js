@@ -1,5 +1,6 @@
 import React from 'react';
 import { useProjectsContext } from '../context';
+import { GoPrimitiveDot } from 'react-icons/go';
 
 export const ProjectOverlay = ({ setProject, showProjectOverlay, setShowProjectOverlay}) => {
   const { projects } = useProjectsContext();
@@ -18,6 +19,7 @@ export const ProjectOverlay = ({ setProject, showProjectOverlay, setShowProjectO
                   setShowProjectOverlay(false);
                 }}
               >
+                <span><GoPrimitiveDot /></span>
                 {project.name}
               </div>
             </li>
