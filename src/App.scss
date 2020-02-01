@@ -466,7 +466,7 @@ header {
   padding-left: 40px;
   padding-right: 40px;
   padding-top: 80px;
-  padding-bottom: 84px;
+  padding-bottom: 300px;
 
   @include mq('900px') {
     margin-left: 0;
@@ -486,11 +486,19 @@ header {
   &__date {
     padding-bottom: 10px;
     border-bottom: 1px solid #f0f0f0;
-  }
+    margin-top: 30px;
 
-  h4 {
-    margin: 30px 0 0 0;
-    font-size: 14px;
+    &__title {
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    &__date {
+      font-size: 12px;
+      font-weight: normal;
+      color: gray;
+      margin-left: 10px;
+    }
   }
 
   &__list li {
@@ -504,6 +512,24 @@ header {
     font-size: 14px;
     list-style-type: none;
     border-bottom: 1px solid #f0f0f0;
+
+    .trash-bin {
+      margin-left: auto;
+      margin-right: 10px;
+      font-size: 16px;
+      display: none;
+
+      svg {
+        color: #cacaca;
+      }
+    }
+
+    &:hover .trash-bin {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      cursor: pointer;
+    }
 
     .checkbox-holder {
       margin-right: 20px;
@@ -530,7 +556,7 @@ header {
 
         &:hover {
           border-color: gray;
-          background-color: rgb(218, 216, 216);
+          background-color: rgb(241, 241, 241);
         }
       }
     }
@@ -652,7 +678,7 @@ header {
   right: 0;
 
   .react-calendar {
-    padding: 3px 3px 3px 3px;
+    padding: 4px 4px 10px 4px;
     border: none;
 
     &__navigation {

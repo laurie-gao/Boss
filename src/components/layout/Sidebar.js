@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaChevronDown, FaRegCalendarAlt, FaRegCalendarCheck, FaInbox} from 'react-icons/fa';
+import { FaChevronDown, FaRegPaperPlane, FaRegCalendarCheck, FaInbox, FaFire} from 'react-icons/fa';
 import { useSelectedProjectContext, useInboxContext } from '../../context';
 import { Projects } from '../Projects';
 import { AddProject } from '../AddProject';
@@ -39,7 +39,7 @@ export const Sidebar = () => {
                             setActiveProject(true);
                         }}
                     >
-                        <span clasName="today"><FaRegCalendarCheck /></span>
+                        <span clasName="today"><FaFire /></span>
                         <span>Today</span>
                     </div>
                 </li>
@@ -54,8 +54,23 @@ export const Sidebar = () => {
                             setActiveProject(true);
                         }}
                     >
-                        <span className="next7"><FaRegCalendarAlt /></span>
+                        <span className="next7"><FaRegPaperPlane /></span>
                         <span>Next 7 days</span>
+                    </div>
+                </li>
+                <li data-testid="completetd"
+                    className={(current === 'completed' && !showInbox && activeProject)? 'active' : undefined}
+                >
+                    <div 
+                        onClick={() => {
+                            setCurrent('completed');
+                            setSelectedProject('COMPLETED')
+                            setShowInbox(false);
+                            setActiveProject(true);
+                        }}
+                    >
+                        <span className="completed"><FaRegCalendarCheck /></span>
+                        <span>Completed</span>
                     </div>
                 </li>
             </ul>

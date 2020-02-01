@@ -6,6 +6,7 @@ import { useTasks } from '../hooks';
 import { combinedTasks } from '../constants';
 import { getTitle, getCombinedTitle, findTasks, getDayOfWeek } from '../helpers';
 import { useSelectedProjectContext, useProjectsContext } from '../context';
+import { Completed } from './Completed';
 
 
 export const Tasks = () => {
@@ -28,10 +29,14 @@ export const Tasks = () => {
         document.title = `${projectName}: Boss`;
     }, [projectName]);
 
-    const printList = (dayOfWeek) => {
+    const printList = (dayOfWeek, plusDays) => {
         return (
             <>
-                <h4 className="tasks__date">{dayOfWeek === today? 'Today' : getDayOfWeek(dayOfWeek).name}</h4>
+                <div className="tasks__date">
+                    <span className="tasks__date__title">{dayOfWeek === today? 'Today' : getDayOfWeek(dayOfWeek).name}
+                        <span className="tasks__date__date">{moment().add(plusDays, 'days').format('MMM DD')}</span>
+                    </span>
+                </div>
                 <ul className="tasks__list">
                     {tasks.filter(
                         task => moment(moment(task.date, "DD/MM/YYYY").format('YYYY-MM-DD')).day() === dayOfWeek
@@ -53,17 +58,18 @@ export const Tasks = () => {
 
             {projectName === 'Next 7 Days' && (
                 <>
-                    <div>{printList(today)}</div>
-                    <div>{printList((today+1)%7)}</div>
-                    <div>{printList((today+2)%7)}</div>
-                    <div>{printList((today+3)%7)}</div>
-                    <div>{printList((today+4)%7)}</div>
-                    <div>{printList((today+5)%7)}</div>
-                    <div>{printList((today+6)%7)}</div>
+                    <div>{printList(today%7, 0)}</div>
+                    <div>{printList((today+1)%7, 1)}</div>
+                    <div>{printList((today+2)%7, 2)}</div>
+                    <div>{printList((today+3)%7, 3)}</div>
+                    <div>{printList((today+4)%7, 4)}</div>
+                    <div>{printList((today+5)%7, 5)}</div>
+                    <div>{printList((today+6)%7, 6)}</div>
+                    <AddTask />
                 </>
             )}
 
-            {projectName !== 'Next 7 Days' && (
+            {projectName !== 'Next 7 Days' && projectName !== 'Completed' && (
                 <ul className="tasks__list">
                 {tasks.map(task => (
                     <li key={`${task.id}`}>
@@ -71,9 +77,15 @@ export const Tasks = () => {
                         <span>{task.task}</span>
                     </li>
                 ))}
-            </ul>
+                <AddTask />
+                </ul>
             )}
-            <AddTask />
+
+            {projectName === 'Completed' && 
+                <ul className="tasks__list">
+                    <Completed />
+                </ul>
+            }
         </div>
     );
 };
