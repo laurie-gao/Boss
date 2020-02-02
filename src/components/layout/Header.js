@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { IoIosStats } from 'react-icons/io';
 import { AiOutlinePlus } from 'react-icons/ai';
 import { AddTask } from '../AddTask';
+import { Stats } from '../Stats';
 import { useSelectedProjectContext, useInboxContext } from '../../context';
 
 export const Header = () => {
     const [showMain, setShowMain] = useState(false);
     const [showQuickAddTask, setShowQuickAddTask] = useState(false);
+    const [showStats, setShowStats] = useState(false);
     const { setSelectedProject } = useSelectedProjectContext();
     const { setShowInbox } = useInboxContext();
 
@@ -37,7 +39,12 @@ export const Header = () => {
                         >
                             <AiOutlinePlus /> 
                         </li>
-                        <li className = "settings__stat">
+                        <li 
+                            className = "settings__stat"
+                            onClick={() => {
+                                setShowStats(!showStats);
+                            }}
+                        >
                             <IoIosStats />
                         </li>
                     </ul>
@@ -49,6 +56,11 @@ export const Header = () => {
                 showMainValue={showMain}
                 showQuickAddTask={showQuickAddTask}
                 setShowQuickAddTask={setShowQuickAddTask}
+            />
+
+            <Stats
+                showStats={showStats}
+                setShowStats={setShowStats}
             />
         </header>
     );

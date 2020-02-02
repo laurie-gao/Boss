@@ -148,6 +148,41 @@ header {
     padding: 0 10px;
   }
 
+  .stats__overlay{
+    position: absolute;
+    @include box-overlay();
+    z-index: 99;
+    width: 230px;
+    padding: 15px;
+    right: 200px;
+    margin-top: 3px;
+    background-color: white;
+
+    &__title {
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    &__cancel {
+      cursor: pointer;
+      color: gray;
+      float: right;
+      font-size: 20px;
+    }
+
+    div {
+      margin-top: 20px;
+      font-size: 14px;
+      text-align: center;
+      color: gray;
+
+      img {
+        margin-left: 8px;
+        width: 18px;
+      }
+    }
+  }
+
   nav {
     display: grid;
     -webkit-box-align: center;
@@ -499,6 +534,13 @@ header {
       color: gray;
       margin-left: 10px;
     }
+  }
+
+  &__list__date {
+    font-size: 11px;
+    color: gray;
+    margin-left: 10px;
+    padding-top: 2px;
   }
 
   &__list li {

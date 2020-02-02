@@ -6,7 +6,7 @@ import { useSelectedProjectContext } from '../context';
 
 export const Completed = () => {
     const { selectedProject } = useSelectedProjectContext();
-    const { archivedTasks, setArchivedTasks } = useTasks(selectedProject);
+    const { archivedTasks } = useTasks(selectedProject);
     console.log(archivedTasks);
 
     const deleteTask = id => {

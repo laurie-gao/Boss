@@ -9,7 +9,7 @@ export const Sidebar = () => {
     const { showInbox, setShowInbox } = useInboxContext();
     const [current, setCurrent] = useState('inbox');
     const [showProjects, setShowProjects] = useState(true);
-    const [ activeProject, setActiveProject] = useState(true);
+    const [activeProject, setActiveProject] = useState(true);
 
     return (
         <div className="sidebar" data-testid="sidebar">

@@ -5,11 +5,11 @@ import moment from 'moment';
 import { firebase } from '../firebase';
 import { useSelectedProjectContext } from '../context';
 import { ProjectOverlay } from './ProjectOverlay';
-import { TaskDate } from './TaskDate';
+import { TaskDate } from './TaskDate'; 
 
 export const AddTask = ({
     showAddTaskMain = true,  
-    showMainValue = false, 
+    showMainValue = false,
     showQuickAddTask,
     setShowQuickAddTask
 }) => {
@@ -35,7 +35,7 @@ export const AddTask = ({
         return (task && projectId && 
             firebase
                 .firestore()
-                .collection('tasks')
+                .collection('tasks') 
                 .add({
                     archived: false,
                     projectId,
@@ -46,7 +46,7 @@ export const AddTask = ({
                     setTask('');
                     setProject('');
                     setTaskDate('');
-                    setShowMain('');
+                    setShowMain(false);
                     setShowProjectOverlay(false);
                 })
         );
@@ -136,15 +136,15 @@ export const AddTask = ({
                         <FaRegCalendarAlt />
                     </span>
                     <ProjectOverlay 
-                setProject={setProject} 
-                showProjectOverlay={showProjectOverlay}
-                setShowProjectOverlay={setShowProjectOverlay}
-                />
-                <TaskDate 
-                    setTaskDate={setTaskDate}
-                    showTaskDate={showTaskDate}
-                    setShowTaskDate={setShowTaskDate}
-                />
+                        setProject={setProject} 
+                        showProjectOverlay={showProjectOverlay}
+                        setShowProjectOverlay={setShowProjectOverlay}
+                    />
+                    <TaskDate 
+                        setTaskDate={setTaskDate}
+                        showTaskDate={showTaskDate}
+                        setShowTaskDate={setShowTaskDate}
+                    />
                 </div>
             )}
         </div>

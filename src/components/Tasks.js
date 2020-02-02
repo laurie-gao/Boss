@@ -52,6 +52,21 @@ export const Tasks = () => {
         );
     };
 
+    const printListGeneric = () => {
+        return (
+            <ul className="tasks__list">
+                {tasks.map(task => (
+                    <li key={`${task.id}`}>
+                        <Checkbox id={task.id} />
+                        <span>{task.task}</span>
+                        <div className="tasks__list__date">{moment(task.date, 'DD/MM/YY').format('MMM DD')}</div>
+                    </li>
+                ))}
+                <AddTask />  
+                </ul>
+        )
+    }
+
     return (
         <div className="tasks" data-testid="tasks">
             <h2 data-testid="projectName">{projectName}</h2>
@@ -69,7 +84,7 @@ export const Tasks = () => {
                 </>
             )}
 
-            {projectName !== 'Next 7 Days' && projectName !== 'Completed' && (
+            {projectName === 'Today' && (
                 <ul className="tasks__list">
                 {tasks.map(task => (
                     <li key={`${task.id}`}>
@@ -80,6 +95,9 @@ export const Tasks = () => {
                 <AddTask />
                 </ul>
             )}
+
+            {projectName !== 'Today' && projectName !== 'Next 7 Days' && projectName !== 'Completed' && printListGeneric()}
+
 
             {projectName === 'Completed' && 
                 <ul className="tasks__list">
