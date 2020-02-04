@@ -37,6 +37,12 @@ https://nodejs.org/en/download/
 npm install npm@latest -g
 ```
 
+### Install dependencies
+
+```sh
+npm install
+```
+
 ### Run
 
 Inside app project directory,
