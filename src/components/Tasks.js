@@ -59,7 +59,10 @@ export const Tasks = () => {
                     <li key={`${task.id}`}>
                         <Checkbox id={task.id} />
                         <span>{task.task}</span>
-                        <div className="tasks__list__date">{moment(task.date, 'DD/MM/YY').format('MMM DD')}</div>
+                        <div className="tasks__list__date">{task.date === "" 
+                            ? "no date"
+                            : moment(task.date, 'DD/MM/YY').format('MMM DD')
+                            }</div>
                     </li>
                 ))}
                 <AddTask />  
