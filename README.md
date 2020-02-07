@@ -1,6 +1,6 @@
-## Visit the Site
+## Visit the Site 
 
-boss-todolist.netlify.com
+[Boss Link](https://boss-todolist.netlify.com/)
 
 ## Description
 
