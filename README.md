@@ -11,7 +11,7 @@ Note: This is a personal project and not meant to host a large number of users.
 ## Built With
 
 * React (custom hooks and context)
-* Firebase 
+* Firebase (google authentication)
 * [React-moment](https://www.npmjs.com/package/react-moment)
 * [React-calendar](https://www.npmjs.com/package/react-calendar)
 * [React-icons](https://react-icons.netlify.com/#/)
