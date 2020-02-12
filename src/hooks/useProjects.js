@@ -1,14 +1,16 @@
 import { useState, useEffect } from 'react';
 import { firebase } from '../firebase';
+import { useAuthContext } from '../context';
 
 export const useProjects = () => {
     const [projects, setProjects] = useState([]);
+    const { userId } = useAuthContext();
   
     useEffect(() => {
       firebase
         .firestore()
         .collection('projects')
-        .where('userId', '==', '1a2s3d4f5g')
+        .where('userId', '==', userId)
         .orderBy('projectId')
         .get()
         .then(snapshot => {

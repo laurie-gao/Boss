@@ -211,6 +211,7 @@ header {
           height: 30px;
           text-align: center;
           vertical-align: middle;
+
           &:hover {
             border-radius: 3px;
             background-color: rgba(255,255,255,0.2);
@@ -248,7 +249,7 @@ header {
           }
 
           &.settings__add {
-            margin-right: 15px;
+            margin-right: 10px;
             font-size: 23px;
 
             button {
@@ -260,6 +261,13 @@ header {
 
           &.settings__stat {
             font-size: 23px;
+            margin-right: 10px;
+          }
+
+          &.sign-button {
+            width: 60px;
+            font-weight: bold;
+            font-size: 15px;
           }
         }
       }

@@ -2,16 +2,18 @@ import { useState, useEffect } from 'react';
 import moment from 'moment';
 import { firebase } from '../firebase';
 import { findTasks } from '../helpers';
+import { useAuthContext } from '../context';
 
 export const useTasks = selectedProject => {
     const [tasks, setTasks] = useState([]);
     const [archivedTasks, setArchivedTasks] = useState([]);
+    const { userId } = useAuthContext();
   
     useEffect(() => {
       let taskList = firebase
         .firestore()
         .collection('tasks')
-        .where('userId', '==', '1a2s3d4f5g');
+        .where('userId', '==', userId);
   
       taskList =
         selectedProject && !findTasks(selectedProject)

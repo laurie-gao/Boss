@@ -3,6 +3,7 @@ import { IoIosStats } from 'react-icons/io';
 import { AiOutlinePlus } from 'react-icons/ai';
 import { AddTask } from '../AddTask';
 import { Stats } from '../Stats';
+import { firebase } from '../../firebase';
 import { useSelectedProjectContext, useInboxContext } from '../../context';
 
 export const Header = () => {
@@ -40,12 +41,20 @@ export const Header = () => {
                             <AiOutlinePlus /> 
                         </li>
                         <li 
-                            className = "settings__stat"
+                            className="settings__stat"
                             onClick={() => {
                                 setShowStats(!showStats);
                             }}
                         >
                             <IoIosStats />
+                        </li>
+                        <li 
+                            className="sign-button"
+                            onClick={() => {
+                                firebase.auth().signOut();
+                            }}
+                        >
+                            <span>Sign Out</span>
                         </li>
                     </ul>
                 </div>

@@ -1,5 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
+import 'firebase/auth';
 
 const config = firebase.initializeApp({
     apiKey: "AIzaSyDGjZOCDDD9zCskRFGpC6SWJB6Ndc9ot-A",
@@ -10,5 +11,15 @@ const config = firebase.initializeApp({
     messagingSenderId: "517422757515",
     appId: "1:517422757515:web:78552f734308e190c3468e"
 });
+
+export const uiConfig = {
+    signInFlow: "popup",
+    signInOptions: [
+        firebase.auth.GoogleAuthProvider.PROVIDER_ID
+    ],
+    callbacks: {
+        signInSuccess: () => false    
+        }
+};
 
 export { config as firebase };

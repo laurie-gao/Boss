@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { firebase } from '../firebase';
 import { generatePushId } from '../helpers';
-import { useProjectsContext } from '../context';
+import { useProjectsContext, useAuthContext } from '../context';
 
 export const AddProject = ({ showValue = false }) => {
     const [show, setShow] = useState(showValue);
     const [listName, setListName] = useState('');
+    const { userId } = useAuthContext();
 
     const projectId = generatePushId();
     const { projects, setProjects } = useProjectsContext();
@@ -14,7 +15,7 @@ export const AddProject = ({ showValue = false }) => {
         listName && firebase
             .firestore()
             .collection('projects')
-            .add({ projectId, name: listName, userId: '1a2s3d4f5g'})
+            .add({ projectId, name: listName, userId})
             .then(() => {
                 setProjects([...projects]);
                 setListName('');

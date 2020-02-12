@@ -13,11 +13,18 @@ import {
     useInboxContext
 } from './inboxContext';
 
+import {
+    AuthStore,
+    useAuthContext
+} from './authContext';
+
 export { 
     ProjectsStore, 
     useProjectsContext,
     SelectedProjectStore,
     useSelectedProjectContext,
     InboxStore,
-    useInboxContext
+    useInboxContext,
+    AuthStore,
+    useAuthContext
 }

@@ -3,7 +3,7 @@ import { FaRegCalendarAlt } from 'react-icons/fa';
 import { IoIosList, IoIosClose } from 'react-icons/io';
 import moment from 'moment';
 import { firebase } from '../firebase';
-import { useSelectedProjectContext } from '../context';
+import { useSelectedProjectContext, useAuthContext } from '../context';
 import { ProjectOverlay } from './ProjectOverlay';
 import { TaskDate } from './TaskDate'; 
 
@@ -19,6 +19,7 @@ export const AddTask = ({
     const [showMain, setShowMain] = useState(showMainValue);
     const [showProjectOverlay, setShowProjectOverlay] = useState(false);
     const [showTaskDate, setShowTaskDate] = useState(false);
+    const { userId } = useAuthContext();
 
     const { selectedProject } = useSelectedProjectContext();
 
@@ -41,7 +42,7 @@ export const AddTask = ({
                     projectId,
                     task,
                     date: (taskDate !== '')? taskDate : date,
-                    userId: '1a2s3d4f5g'
+                    userId
                 }).then(() => {
                     setTask('');
                     setProject('');
