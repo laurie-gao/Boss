@@ -7,6 +7,7 @@ export const useProjects = () => {
     const { userId } = useAuthContext();
   
     useEffect(() => {
+      console.log(userId);
       firebase
         .firestore()
         .collection('projects')
@@ -23,7 +24,7 @@ export const useProjects = () => {
             setProjects(allProjects);
           }
         });
-    }, [projects]);
+    }, [projects, userId]);
   
     return { projects, setProjects };
   };

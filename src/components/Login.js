@@ -4,9 +4,14 @@ import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'
 
 export const Login = () => {
     return (
-    <StyledFirebaseAuth 
-        uiConfig={uiConfig}
-        firebaseAuth={firebase.auth()}
-    />
+        <div className="login">
+            <h2 className="title" >Welcome</h2> 
+            <img src="/icons/logogray.png" alt="logo" />
+            <h4 className="subtitle">create your own boss</h4>
+            <StyledFirebaseAuth 
+                uiConfig={uiConfig}
+                firebaseAuth={firebase.auth()}
+            />
+        </div>
     );
 };

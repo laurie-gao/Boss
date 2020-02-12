@@ -8,7 +8,6 @@ import { getTitle, getCombinedTitle, findTasks, getDayOfWeek } from '../helpers'
 import { useSelectedProjectContext, useProjectsContext } from '../context';
 import { Completed } from './Completed';
 
-
 export const Tasks = () => {
     const { selectedProject } = useSelectedProjectContext();
     const { projects } = useProjectsContext();

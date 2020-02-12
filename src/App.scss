@@ -274,6 +274,24 @@ header {
     }
   }
 }
+/* Login
+  ============================================ */
+  .login {
+    text-align: center;
+    .title {
+      font-size: 80px;
+      color: #354dac;
+    }
+    
+    .subtitle {
+      font-size: 18px;
+      font-weight: normal;
+      color: rgb(103, 103, 124)
+    }
+    img {
+      width: 40px;
+    }
+  }
 
 /* Sidebar
   ============================================ */

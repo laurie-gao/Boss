@@ -24,13 +24,13 @@ export const AddTask = ({
     const { selectedProject } = useSelectedProjectContext();
 
     const addTask = () => {
-        const projectId = (project !== '') ? project : selectedProject;
+        const projectId = (project !== '' ) ? project : selectedProject;
         let date = '';
 
-        if (projectId === 'TODAY') {
+        if (projectId === 'TODAY' || (taskDate === '' && selectedProject === 'TODAY')) {
             date = moment().format('DD/MM/YYYY')
-        } else if (projectId === 'NEXT_7') {
-            date = moment().add(7, 'days').format('DD/MM/YYYY');
+        } else if (projectId === 'NEXT_7' || (taskDate === '' && selectedProject === 'NEXT_7')) {
+            date = moment().add(6, 'days').format('DD/MM/YYYY');
         } 
         
         return (task && projectId && 
