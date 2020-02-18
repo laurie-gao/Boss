@@ -98,10 +98,10 @@ export const Tasks = () => {
                 </ul>
             )}
 
-            {projectName !== 'Today' && projectName !== 'Next 7 Days' && projectName !== 'Completed' && printListGeneric()}
+            {projectName !== 'Today' && projectName !== 'Next 7 Days' && projectName !== 'Completed' && projectName !== 'Overdue' && printListGeneric()}
 
 
-            {projectName === 'Completed' && 
+            {(projectName === 'Completed' || projectName === 'Overdue') && 
                 <ul className="tasks__list">
                     <Completed />
                 </ul>

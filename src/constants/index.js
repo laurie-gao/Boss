@@ -2,7 +2,8 @@ export const combinedTasks = [
     {key: 'INBOX', name: 'Inbox'},
     {key: 'TODAY', name: 'Today'},
     {key: 'NEXT_7', name: 'Next 7 Days'},
-    {key: 'COMPLETED', name: 'Completed'}
+    {key: 'COMPLETED', name: 'Completed'},
+    {key: 'OVERDUE', name: 'Overdue'}
 ];
 
 export const dayOfWeek = [

@@ -40,6 +40,12 @@ export const useTasks = selectedProject => {
                 moment(task.date, 'DD-MM-YYYY').diff(moment(), 'days') >= 0 &&
                 task.archived !== true
               )
+            : selectedProject === 'OVERDUE'
+            ? newTasks.filter(
+              task => 
+              moment(task.date, 'DD-MM-YYYY').diff(moment(), 'days') < 0 &&
+              task.archived !== true
+            )
             : newTasks.filter(
               task => 
               (moment(task.date, 'DD-MM-YYYY').diff(moment(), 'days') >= 0 || 
