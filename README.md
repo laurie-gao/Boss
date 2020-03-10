@@ -1,3 +1,5 @@
+![](Boss_demo.gif)
+
 ## Visit the Site 
 
 [Boss Link](https://boss-todolist.netlify.com/)
