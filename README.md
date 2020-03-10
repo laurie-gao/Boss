@@ -1,4 +1,4 @@
-![](demo.gif)
+![](boss_demo.gif)
 
 ## Visit the Site 
 
