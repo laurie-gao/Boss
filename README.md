@@ -6,9 +6,9 @@
 
 ## Description
 
-Boss is a browser app that can be used to keep track of daily tasks -- so basically a todolist app. The design is inspired by (copied from) similar websites. It has a simple UI and all the basic features you'd expect from a todolist: schedule, organize, archive, and delete tasks.
+Boss is a browser app that can be used to keep track of daily tasks -- so basically a todolist app. The design is inspired by (copied from) similar apps. It has a simple UI and all the basic features you'd expect from a todolist: schedule, organize, archive, and delete tasks.
 
-Note: This is a personal project and with free firebase hosting, not meant for production
+Note: This is a personal project with free firebase hosting, not meant for production
 
 ## Built With
 
